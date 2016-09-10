@@ -3,6 +3,8 @@ window.onload = function(){
   var dealerCardsArray = [];
   var playerScore = 0;
   var dealerScore = 0;
+  var pScore = 0;
+  var dScore = 0;
 
   var deck = [
     {suit: "hearts", score: 11, backgroundPosition: "-706px -128px" },
@@ -26,57 +28,50 @@ window.onload = function(){
   var dealCard = function(){
     var index = Math.floor(Math.random() * deck.length);
     var card = deck.splice(index, 1)[0];
-    // console.log(deck.length);
+    console.log(card);
     return card;
   };
-
 
   var dealFirstCards = function(){
   	for (var i = 1; i < 5; i++){
       var card = dealCard();
-      // if (i % 2 !== 0) {
-    	// 	playerCardsArray.push(card);
-      //   playerScore += card.score;
-      // } else {
-      //   dealerCardsArray.push(card);
-      //   dealerScore += card.score;
-      // }
-      (i % 2 !== 0) ? playerCardsArray.push(card) : dealerCardsArray.push(card);
-      (i % 2 !== 0) ? playerScore += card.score : dealerScore += card.score;
+      if (i % 2 !== 0) {
+    		playerCardsArray.push(card);
+        playerScore += card.score;
+      } else {
+        dealerCardsArray.push(card);
+        dealerScore += card.score;
+      }
+      // (i % 2 !== 0) ? playerCardsArray.push(card) : dealerCardsArray.push(card);
+      // (i % 2 !== 0) ? playerScore += card.score : dealerScore += card.score;
     }
-  	return [dealerCardsArray, playerCardsArray];
+  	return [playerCardsArray, dealerCardsArray];
   };
-
-  console.log(dealFirstCards());
-
-  // var addCardsToDom = function(){
-  //   for (var i = 0; i < 4; i++){
-  //     var domCard = document.querySelector(`.card${i}`);
-  //     for
-  //       if (i % 2 !== 0) {
-  //         domCard.style.backgroundPosition = playerCardsArray[].backgroundPosition;
-  //       }
-  //
-  //     }
-  //       var domCard = document.querySelector(".card1");
-  //       console.log(card, "dom cards" + domCard);
-  // }
 
   var addCardsToDom = function(){
     playerCardsArray.forEach(function(card, index){
       var domCard = document.querySelector(`.card${index + 1}`);
-      // console.log(domCard);
       domCard.style.backgroundPosition = card.backgroundPosition;
     });
 
     dealerCardsArray.forEach(function(card, index){
       var domCard = document.querySelector(`.card${index + 3}`);
-      // console.log(domCard);
       domCard.style.backgroundPosition = card.backgroundPosition;
     });
   };
 
+  var updateDomScore = function(){
+    var dealerScoreBox = document.querySelector(".dealerScoreBox");
+    var playerScoreBox = document.querySelector(".playerScoreBox");
+    dealerScoreBox.innerHTML = `DEALER: ${dealerScore}`;
+
+    playerScoreBox.innerHTML = `PLAYER: ${playerScore}`
+
+  };
+
+  dealFirstCards();
   addCardsToDom();
+  updateDomScore();
   console.log(`player: ${playerScore} dealer: ${dealerScore}`);
 
-}; //window.onload()
+}; // end of window.onload()
