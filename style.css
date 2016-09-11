@@ -8,7 +8,7 @@ div[class^="card"] {
   height: 110px;
   position: absolute;
   border: 1px black solid;
-  border-radius: 10px;
+  border-radius: 4px;
   background-image: url("cards.jpg");
   animation-name: move-card;
   animation-duration: 2s;
@@ -17,32 +17,26 @@ div[class^="card"] {
 .card1 {
   left: 400px;
   top: 350px;
-  /*background-position: -706px -5px;*/
 }
 .card2 {
   left: 425px;
   top: 375px;
-  /*background-position: 2008px -5px;*/
 }
 .card3 {
   left: 400px;
   top: 100px;
-  /*background-position: -706px -128px;*/
 }
 .card4 {
   left: 425px;
   top: 125px;
-  /*background-position: 2008px -128px;*/
 }
 .card5 {
   left: 550px;
   top: 350px;
-  /*background-position: -706px -128px;*/
 }
 .card6 {
   left: 575px;
   top: 375px;
-  /*background-position: 2008px -128px;*/
 }
 .scores {
   position: absolute;
