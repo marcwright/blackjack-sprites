@@ -114,14 +114,29 @@ var createDeck = function(){
   	return [playerCardsArray, dealerCardsArray];
   };
 
-  var addCardsToDom = function(){
+  var addFirstCardsToDom = function(){
+    // var cardArrays = [playerCardsArray, dealerCardsArray];
+
+    // for (var i = 0; i < 4; i++){
+    //   var domCard = document.querySelector(`.card${index + 1}`);
+    //
+    //   if (i % 2 == 0) {
+    //     domCard.style.backgroundPosition = card.backgroundPosition;
+    //
+    //   }
+    //
+    // }
+
     playerCardsArray.forEach(function(card, index){
       var domCard = document.querySelector(`.card${index + 1}`);
+      // domCard.style.display = "block";
+      // domCard.style.animationDelay = `${index}s`;
       domCard.style.backgroundPosition = card.backgroundPosition;
     });
 
     dealerCardsArray.forEach(function(card, index){
       var domCard = document.querySelector(`.card${index + 3}`);
+      // domCard.style.animationDelay = `${index}s`;
       domCard.style.backgroundPosition = card.backgroundPosition;
     });
   };
@@ -135,9 +150,28 @@ var createDeck = function(){
 
   };
 
+    var hitCounter = 1;
+
+    $("button[name='hit']").on('click', function(){
+      var hitCard = dealCard();
+
+      playerCardsArray.push(hitCard);
+      playerScore += hitCard.val;
+
+      var hitCardLeft = `${425 + (25 * hitCounter)}px`
+      var hitCardTop = `${375 + (25 * hitCounter)}px`
+
+      var playerHitCardElement = `<div class='card${hitCounter}' style="background-position: ${hitCard.backgroundPosition}; top:${hitCardTop}; left:${hitCardLeft} "></div>`;
+
+      $('body').append(playerHitCardElement);
+      hitCounter += 1;
+      updateDomScore();
+    });
+
+
   createDeck();
   dealFirstCards();
-  addCardsToDom();
+  addFirstCardsToDom();
   updateDomScore();
   console.log(`player: ${playerScore} dealer: ${dealerScore}`);
 

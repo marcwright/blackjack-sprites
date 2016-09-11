@@ -11,33 +11,43 @@ div[class^="card"] {
   border-radius: 4px;
   background-image: url("cards.jpg");
   animation-name: move-card;
-  animation-duration: 2s;
+  animation-duration: 1s;
+  /*display: none;*/
   /*transition:transform 1s linear;*/
 }
+.hide {
+  display: none;
+}
 .card1 {
+  /*player card 1*/
   left: 400px;
   top: 350px;
 }
 .card2 {
+  /*player card 2*/
   left: 425px;
   top: 375px;
 }
 .card3 {
+  /*dealer card 1*/
   left: 400px;
   top: 100px;
 }
 .card4 {
+  /*dealer card 2*/
   left: 425px;
   top: 125px;
 }
-.card5 {
-  left: 550px;
-  top: 350px;
+/*.card5 {*/
+  /*player card 3*/
+  /*left: 450px;
+  top: 400px;
 }
-.card6 {
-  left: 575px;
-  top: 375px;
-}
+.card6 {*/
+  /*player card 4*/
+  /*left: 475px;
+  top: 425px;
+}*/
 .scores {
   position: absolute;
   background: rgba(255, 255, 0, 0.8);
@@ -48,14 +58,18 @@ div[class^="card"] {
   width: 100px;
   height: 36px;
 }
-.dealerScoreBox {
-
+button {
+  left: 150px;
+  top: 400px;
+  padding: 2em;
+  position: relative;
 }
 @keyframes move-card {
   0% {
     left: 800px;
     top: 0px;
     transform: rotateZ(90deg);
+    /*display:none;*/
   }
   15% {
     transform: rotateZ(720deg);
