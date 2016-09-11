@@ -15,6 +15,12 @@ div[class^="card"] {
   /*display: none;*/
   /*transition:transform 1s linear;*/
 }
+.dealerDownCard {
+  background-position: -62px 515px;
+  background-size: 3100px 1600px;
+  left: 400px;
+  top: 100px;
+}
 .hide {
   display: none;
 }
@@ -32,6 +38,7 @@ div[class^="card"] {
   /*dealer card 1*/
   left: 400px;
   top: 100px;
+  display: none;
 }
 .card4 {
   /*dealer card 2*/
