@@ -1,8 +1,8 @@
 window.onload = function(){
   var game = {
     playerCardsArray: [],
-    dealerCardsArray: [],
     playerScore: 0,
+    dealerCardsArray: [],
     dealerScore: 0,
     suits: ["spades", "hearts", "clubs", "diamonds"],
     hitCounter: 1,
